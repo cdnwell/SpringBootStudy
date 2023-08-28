@@ -9,7 +9,7 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.servlet.DispatcherServlet;
 
 // 좀 더 간결하게 Bean 등록하는 방법
-@Configuration
+//@Configuration
 public class HellobootApplicationRep1 {
     // 명시적으로 이런 클래스 등록하라고 작성, 설정 파일 작성하는 대신에
     // 나를 Bean으로 등록해줘라고 클래스에 레이블을 붙여주는 것

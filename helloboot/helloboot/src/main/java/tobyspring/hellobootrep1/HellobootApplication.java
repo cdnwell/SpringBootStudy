@@ -31,10 +31,10 @@ public class HellobootApplication {
     // factory 메서드-1
     // Spring container가 호출함.
     // Bean 오브젝트 만들기 위해 쓰이는 구나 -> @Bean 붙이기
-    @Bean
-    public HelloController helloController(HelloService helloService) {
-        return new HelloController(helloService);
-    }
+//    @Bean
+//    public HelloController helloController(HelloService helloService) {
+//        return new HelloController(helloService);
+//    }
 
     // factory 메서드-2
     @Bean
