@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-@Configuration
-@ComponentScan
+//@Configuration
+//@ComponentScan
 public class HellobootApplicationRep3 {
     @Bean
     public ServletWebServerFactory servletWebServerFactory() {
