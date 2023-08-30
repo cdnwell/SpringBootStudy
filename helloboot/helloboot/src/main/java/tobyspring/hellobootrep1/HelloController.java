@@ -31,15 +31,22 @@ public class HelloController {
 //        this.helloService = helloService;
 //    }
     // 생서자를 통해 ApplicationContext를 주입 받는 방법
-    public HelloController(HelloService helloService, ApplicationContext applicationContext) {
+    public HelloController(HelloService helloService) {
         this.helloService = helloService;
-        this.applicationContext = applicationContext;
+//        this.applicationContext = applicationContext;
 
-        System.out.println(applicationContext);
+//        System.out.println(applicationContext);
     }
+
+//    @GetMapping("/hello")
+//    public String hello(String name) {
+//        return helloService.sayHello(Objects.requireNonNull(name));
+//    }
 
     @GetMapping("/hello")
     public String hello(String name) {
+        if (name != null || name.trim().length() == 0) throw new IllegalArgumentException();
+
         return helloService.sayHello(Objects.requireNonNull(name));
     }
 
