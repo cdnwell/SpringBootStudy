@@ -1,15 +1,9 @@
 package tobyspring.hellobootrep1;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.DispatcherServlet;
+import tobyspring.config.MySpringBootApplication;
 
-@MySpringBootAnnotation
+@MySpringBootApplication
 public class HellobootApplicationRep5 {
     // 2개의 팩토리 메서드를 제거하면 현재 구조에서는 필요한 빈이 제공되지 않으므로 에러 발생
     // 어디선가는 빈 구성정보를 제공해주어야 함.

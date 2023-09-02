@@ -1,4 +1,4 @@
-package tobyspring.hellobootrep1;
+package tobyspring.config;
 
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
@@ -10,15 +10,6 @@ import org.springframework.web.servlet.DispatcherServlet;
 // 팩토리 메서드가 동작하겠죠.
 // 이것 보다는 Configuration이 더 좋음
 // 이것도 메타 애노테이션으로 @Component로 가지고 있음.
-@Configuration
+//@Configuration
 public class Config {
-    @Bean
-    public ServletWebServerFactory servletWebServerFactory() {
-        return new TomcatServletWebServerFactory();
-    }
-
-    @Bean
-    public DispatcherServlet dispatcherServlet() {
-        return new DispatcherServlet();
-    }
 }
