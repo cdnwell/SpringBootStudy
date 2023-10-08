@@ -1,4 +1,4 @@
-package tobyspring.hellobootrep1;
+package com.spring.helloboot;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -45,7 +45,7 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String hello(String name) {
-        if (name == null || name.trim().length() == 0) throw new IllegalArgumentException();
+        if (name.trim().length() == 0) throw new IllegalArgumentException();
 
         return helloService.sayHello(Objects.requireNonNull(name));
     }

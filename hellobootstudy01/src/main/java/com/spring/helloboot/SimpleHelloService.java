@@ -1,4 +1,4 @@
-package tobyspring.hellobootrep1;
+package com.spring.helloboot;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;

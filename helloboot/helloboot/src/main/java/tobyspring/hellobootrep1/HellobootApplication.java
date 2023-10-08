@@ -26,7 +26,7 @@ import java.io.IOException;
 // 그걸 이용해서 Bean 오브젝트를 만들 수 있겠네 인식
 // Configuration과 Bean이라는 애노테이션을 붙인 자바 코드로 만든 구성정보를 사용 하려면 두 가지 작업이
 // 더 필요함
-@Configuration
+//@Configuration
 public class HellobootApplication {
     // factory 메서드-1
     // Spring container가 호출함.
@@ -39,7 +39,7 @@ public class HellobootApplication {
     // factory 메서드-2
     @Bean
     public HelloService helloService() {
-        return new SimpleHelloService();
+        return null;
     }
 
     public static void main(String[] args) {

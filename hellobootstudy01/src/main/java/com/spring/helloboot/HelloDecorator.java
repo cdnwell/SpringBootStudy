@@ -1,4 +1,4 @@
-package tobyspring.hellobootrep1;
+package com.spring.helloboot;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
