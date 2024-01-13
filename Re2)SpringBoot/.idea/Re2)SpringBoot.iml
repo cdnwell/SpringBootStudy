@@ -2,13 +2,11 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/helloboot" isTestSource="false" />
-    </content>
+    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="SonarLintModuleSettings">
-    <option name="uniqueId" value="0abfc000-bc5f-45cb-9d66-60657cbd6c3a" />
+    <option name="uniqueId" value="f6e492ec-9cdd-4a64-a5e9-9b5c96e7c182" />
   </component>
 </module>
