@@ -1,6 +1,7 @@
 package com.example.helloboot;
 
 import com.example.helloboot.controller.HelloController;
+import com.example.helloboot.service.HelloService;
 import com.example.helloboot.service.SimpleHelloService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,33 +13,49 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import java.io.IOException;
-
-@SpringBootApplication
+// bean을 가진 클래스다. config 정보, 구성 정보를 가진 클래스다라는 애노테이션
+@Configuration
 public class Application {
+	@Bean
+	public HelloController helloController(HelloService helloService) {
+		return new HelloController(helloService);
+	}
 
-	public static void main(String[] args) throws LifecycleException {
+	@Bean
+	public HelloService helloService() {
+		return new SimpleHelloService();
+	}
+
+	public static void main(String[] args) {
 		// Spring container
-		GenericWebApplicationContext applicationContext = new GenericWebApplicationContext();
-		applicationContext.registerBean(HelloController.class);
-		applicationContext.registerBean(SimpleHelloService.class);
-		applicationContext.refresh();
+		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
+			@Override
+			protected void onRefresh() {
+				super.onRefresh();
 
-		ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
-		WebServer webServer = serverFactory.getWebServer(servletContext -> {
-			servletContext.addServlet("frontcontroller",
-					new DispatcherServlet(applicationContext)
-			).addMapping("/*");
-		});
-		webServer.start();
+				ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
+				WebServer webServer = serverFactory.getWebServer(servletContext -> {
+					servletContext.addServlet("frontcontroller",
+							new DispatcherServlet(this)
+					).addMapping("/*");
+				});
+				webServer.start();
+			}
+		};
+		applicationContext.register(Application.class);
+		applicationContext.refresh();
 	}
 
 }
